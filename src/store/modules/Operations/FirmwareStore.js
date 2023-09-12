@@ -9,7 +9,7 @@ const FirmwareStore = {
     bmcActiveFirmwareId: null,
     hostActiveFirmwareId: null,
     applyTime: null,
-    tftpAvailable: false,
+    tftpAvailable: true,
   },
   getters: {
     isTftpUploadAvailable: (state) => state.tftpAvailable,

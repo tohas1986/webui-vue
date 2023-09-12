@@ -154,6 +154,7 @@ export default {
       } else {
         this.dispatchTftpUpload(timerId);
       }
+      //Place here a progress bar to view a firmware update process
     },
     dispatchWorkstationUpload(timerId) {
       this.$store
