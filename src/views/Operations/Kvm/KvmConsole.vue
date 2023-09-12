@@ -192,8 +192,7 @@ export default {
       //this.rfb.sendCtrlAltDel();
       if (this.serverPowerStatus() == 'off') {
         this.$store.dispatch('controls/serverPowerOn');
-      }
-      else {
+      } else {
         this.$store.dispatch('controls/serverHardPowerOff');
       }
     },
