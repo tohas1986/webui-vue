@@ -33,6 +33,15 @@
             <icon-launch />
             {{ $t('pageKvm.openNewTab') }}
           </b-button>
+          <b-button
+            v-if="isConnected"
+            variant="link"
+            type="button"
+            @click="serverPowerCycle()"
+          >
+            <icon-launch />
+            {{ $t('pageKvm.powerCycle') }}
+          </b-button>
         </b-col>
       </b-row>
     </div>
@@ -176,6 +185,10 @@ export default {
         'kvmConsoleWindow',
         'directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=700,height=550'
       );
+    },
+    serverPowerCycle() {
+      //Temporary template
+      this.rfb.sendCtrlAltDel();
     },
   },
 };

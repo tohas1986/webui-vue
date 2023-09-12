@@ -488,7 +488,8 @@
         "status": "Статус",
         "connected": "Подключено",
         "connecting": "Подключение",
-        "disconnected": "Отключено"
+        "disconnected": "Отключено",
+        "powerCycle": "Вкл/выкл сервер"
     },
     "pageLdap": {
         "pageDescription": "Настройка параметров LDAP и управление группами",

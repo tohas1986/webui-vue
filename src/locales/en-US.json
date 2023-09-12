@@ -488,7 +488,8 @@
         "status": "Status",
         "connected": "Connected",
         "connecting": "Connecting",
-        "disconnected": "Disconnected"
+        "disconnected": "Disconnected",
+        "powerCycle": "Power Cycle"
     },
     "pageLdap": {
         "pageDescription": "Configure LDAP settings and manage role groups",
