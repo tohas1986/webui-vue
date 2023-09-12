@@ -39,7 +39,7 @@
             type="button"
             @click="serverPowerCycle()"
           >
-            <icon-fast-forward />
+            <icon-arrow-up />
             {{ $t('pageKvm.powerCycle') }}
           </b-button>
         </b-col>
