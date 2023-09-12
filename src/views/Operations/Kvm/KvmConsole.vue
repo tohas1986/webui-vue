@@ -39,7 +39,7 @@
             type="button"
             @click="serverPowerCycle()"
           >
-            <icon-arrow-up />
+            <icon-launch />
             {{ $t('pageKvm.powerCycle') }}
           </b-button>
         </b-col>
@@ -188,7 +188,8 @@ export default {
     },
     serverPowerCycle() {
       //Temporary template
-      this.rfb.sendCtrlAltDel();
+      //this.rfb.sendCtrlAltDel();
+      this.$store.dispatch('controls/serverPowerOn');
     },
   },
 };
