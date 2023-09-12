@@ -39,7 +39,7 @@
             type="button"
             @click="serverPowerCycle()"
           >
-            <icon-launch />
+            <icon-power />
             {{ $t('pageKvm.powerCycle') }}
           </b-button>
         </b-col>
@@ -54,6 +54,7 @@ import RFB from '@novnc/novnc/core/rfb';
 import StatusIcon from '@/components/Global/StatusIcon';
 import IconLaunch from '@carbon/icons-vue/es/launch/20';
 import IconArrowDown from '@carbon/icons-vue/es/arrow--down/16';
+import IconPower from '@carbon/icons-vue/es/power/16';
 import { throttle } from 'lodash';
 import { mapState } from 'vuex';
 
@@ -63,7 +64,7 @@ const Disconnected = 2;
 
 export default {
   name: 'KvmConsole',
-  components: { StatusIcon, IconLaunch, IconArrowDown },
+  components: { StatusIcon, IconLaunch, IconArrowDown, IconPower },
   props: {
     isFullWindow: {
       type: Boolean,
@@ -189,7 +190,15 @@ export default {
     serverPowerCycle() {
       //Temporary template
       //this.rfb.sendCtrlAltDel();
-      this.$store.dispatch('controls/serverPowerOn');
+      if (this.serverPowerStatus() == 'off') {
+        this.$store.dispatch('controls/serverPowerOn');
+      }
+      else {
+        this.$store.dispatch('controls/serverHardPowerOff');
+      }
+    },
+    serverPowerStatus() {
+      return this.$store.getters['global/serverStatus'];
     },
   },
 };
