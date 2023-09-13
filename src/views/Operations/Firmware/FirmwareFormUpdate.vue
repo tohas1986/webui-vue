@@ -84,7 +84,6 @@ import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 
 import FormFile from '@/components/Global/FormFile';
 import ModalUpdateFirmware from './FirmwareModalUpdateFirmware';
-import ProgressBar from 'vuejs-progress-bar';
 
 export default {
   components: { FormFile, ModalUpdateFirmware },
