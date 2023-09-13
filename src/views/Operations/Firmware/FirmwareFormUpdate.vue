@@ -65,6 +65,9 @@
           {{ $t('pageFirmware.form.updateFirmware.startUpdate') }}
         </b-btn>
       </b-form>
+
+      <progress-bar :options="options1" :value="value1" />
+      <input type="number" v-model.number="value1" />
     </div>
 
     <!-- Modals -->
@@ -81,6 +84,7 @@ import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
 
 import FormFile from '@/components/Global/FormFile';
 import ModalUpdateFirmware from './FirmwareModalUpdateFirmware';
+import ProgressBar from "vuejs-progress-bar";
 
 export default {
   components: { FormFile, ModalUpdateFirmware },
@@ -104,6 +108,30 @@ export default {
       tftpFileAddress: null,
       isServerPowerOffRequired:
         process.env.VUE_APP_SERVER_OFF_REQUIRED === 'true',
+      value1: 0,
+      options1: {
+        text: {
+          color: "#ff6e000",
+          shadowEnable: false,
+          shadowColor: "ff6e00",
+          fontSize: 25,
+          fontFamily: "Helvetica",
+          dynamicPosition: false,
+          hideText: false,
+        },
+        progress: {
+          color: "#395bb3",
+          backgroundColor: "#F8F8F8",
+        },
+        layout: {
+          height: 300,
+          width: 140,
+          verticalTextAlign: 160,
+          horizontalTextAlign: 45,
+          strokeWidth: 10,
+          type: "circle",
+        },
+      },
     };
   },
   computed: {
