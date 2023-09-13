@@ -65,10 +65,10 @@
           {{ $t('pageFirmware.form.updateFirmware.startUpdate') }}
         </b-btn>
       </b-form>
+    </div>
 
       <progress-bar :options="options1" :value="value1" />
       <input type="number" v-model.number="value1" />
-    </div>
 
     <!-- Modals -->
     <modal-update-firmware @ok="updateFirmware" />
