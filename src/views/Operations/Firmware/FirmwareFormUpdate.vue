@@ -67,8 +67,8 @@
       </b-form>
     </div>
 
-      <progress-bar :options="options1" :value="value1" />
-      <input type="number" v-model.number="value1" />
+    <progress-bar :options="options1" :value="value1" />
+    <input type="number" v-model.number="value1" />
 
     <!-- Modals -->
     <modal-update-firmware @ok="updateFirmware" />
