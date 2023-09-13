@@ -214,3 +214,26 @@ export default {
   },
 };
 </script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.progress-bar {
+  display: inline-block;
+  width: 0;
+  height: 100%;
+  font-size: 16px;
+  line-height: 25px;
+  color: #ff6e00;
+  text-align: center;
+  transition: all 0.6s ease;
+  padding-top: 25px;
+  margin: 24px;
+  text-shadow: none;
+}
+</style>
+
+<style>
+circle {
+  transition: stroke-dashoffset 500ms ease-in 0s;
+}
+</style>
