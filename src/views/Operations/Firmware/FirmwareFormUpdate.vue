@@ -111,17 +111,17 @@ export default {
       value1: 0,
       options1: {
         text: {
-          color: "#ff6e000",
+          color: '#ff6e000',
           shadowEnable: false,
-          shadowColor: "ff6e00",
+          shadowColor: 'ff6e00',
           fontSize: 25,
-          fontFamily: "Helvetica",
+          fontFamily: 'Helvetica',
           dynamicPosition: false,
           hideText: false,
         },
         progress: {
-          color: "#395bb3",
-          backgroundColor: "#F8F8F8",
+          color: '#395bb3',
+          backgroundColor: '#F8F8F8',
         },
         layout: {
           height: 300,
@@ -129,7 +129,7 @@ export default {
           verticalTextAlign: 160,
           horizontalTextAlign: 45,
           strokeWidth: 10,
-          type: "circle",
+          type: 'circle',
         },
       },
     };
