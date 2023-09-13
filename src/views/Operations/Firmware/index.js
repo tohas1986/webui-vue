@@ -9,5 +9,5 @@ Vue.config.productionTip = false;
 Vue.use(ProgressBar);
 
 new Vue({
-  render: (h) => h(App)
-}).$mount("#Firmware");
+  render: (h) => h(Firmware),
+}).$mount('#Firmware');
