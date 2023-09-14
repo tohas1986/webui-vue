@@ -164,7 +164,10 @@ export default {
           this.errorToast(message);
           clearTimeout(timerId);
         });
-      this.startLoader();
+      for (let i = 0; i < 20; i++) {
+        this.startLoader();
+        setTimeout(() => {  this.endLoader(); }, 2000);
+      }
     },
     dispatchTftpUpload(timerId) {
       this.$store
