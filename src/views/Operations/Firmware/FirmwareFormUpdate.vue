@@ -144,7 +144,7 @@ export default {
           title: this.$t('pageFirmware.toast.verifyUpdate'),
           refreshAction: true,
         });
-      }, 1200000);
+      }, 12000000);
       this.infoToast(this.$t('pageFirmware.toast.updateStartedMessage'), {
         title: this.$t('pageFirmware.toast.updateStarted'),
         timestamp: true,
