@@ -27,7 +27,8 @@
         </template>
       </alert>
     </b-col>
-    <transition name="fade">
+  </b-row>
+  <transition name="fade">
     <b-progress v-if="!isProgressComplete">
       <b-progress-bar
         striped
@@ -37,7 +38,6 @@
       />
     </b-progress>
   </transition>
-  </b-row>
 </template>
 
 <script>
