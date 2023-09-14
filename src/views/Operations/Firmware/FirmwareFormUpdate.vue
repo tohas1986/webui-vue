@@ -160,16 +160,19 @@ export default {
       this.$store
         .dispatch('firmware/uploadFirmware', this.file)
         .catch(({ message }) => {
+          setTimeout(() => {
+            const noop = ()=>{};
+          }, 5000);
           this.endLoader();
           this.errorToast(message);
           clearTimeout(timerId);
         });
-      for (let i = 0; i < 2000000; i++) {
-        this.startLoader();
-        setTimeout(() => {
-          this.endLoader();
-        }, 200000);
-      }
+      //for (let i = 0; i < 2000000; i++) {
+      //  this.startLoader();
+      //  setTimeout(() => {
+      //    this.endLoader();
+      //  }, 200000);
+     // }
     },
     dispatchTftpUpload(timerId) {
       this.$store
