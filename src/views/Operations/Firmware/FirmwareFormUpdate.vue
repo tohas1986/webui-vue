@@ -162,7 +162,7 @@ export default {
         .catch(({ message }) => {
           setTimeout(() => {
             0;
-          }, 5000);
+          }, 500000);
           this.endLoader();
           this.errorToast(message);
           clearTimeout(timerId);
