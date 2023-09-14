@@ -27,6 +27,16 @@
         </template>
       </alert>
     </b-col>
+    <transition name="fade">
+    <b-progress v-if="!isProgressComplete">
+      <b-progress-bar
+        striped
+        animated
+        :value="updateIndicatorValue"
+        :aria-label="$t('global.ariaLabel.progressBar')"
+      />
+    </b-progress>
+  </transition>
   </b-row>
 </template>
 
@@ -34,6 +44,12 @@
 import Alert from '@/components/Global/Alert';
 
 export default {
+  data() {
+    return {
+      updateIndicatorValue: 0,
+      isProgressComplete: false,
+    };
+  },
   components: { Alert },
   props: {
     isServerOff: {
@@ -48,3 +64,24 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.4rem;
+  opacity: 1;
+  transition: opacity $duration--moderate-01 $standard-easing--productive;
+  height: 0.4rem;
+
+  &.fade-enter, // Remove this vue2 based only class when switching to vue3
+  &.fade-enter-from, // This is vue3 based only class modified from 'fade-enter'
+  &.fade-leave-to {
+    opacity: 0;
+  }
+}
+.progress-bar {
+  background-color: $loading-color;
+}
+</style>

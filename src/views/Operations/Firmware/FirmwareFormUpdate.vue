@@ -67,9 +67,6 @@
       </b-form>
     </div>
 
-    <progress-bar :options="options1" :value="value1" />
-    <input type="number" v-model.number="value1" />
-
     <!-- Modals -->
     <modal-update-firmware @ok="updateFirmware" />
   </div>
@@ -107,30 +104,6 @@ export default {
       tftpFileAddress: null,
       isServerPowerOffRequired:
         process.env.VUE_APP_SERVER_OFF_REQUIRED === 'true',
-      value1: 0,
-      options1: {
-        text: {
-          color: '#ff6e000',
-          shadowEnable: false,
-          shadowColor: 'ff6e00',
-          fontSize: 25,
-          fontFamily: 'Helvetica',
-          dynamicPosition: false,
-          hideText: false,
-        },
-        progress: {
-          color: '#395bb3',
-          backgroundColor: '#F8F8F8',
-        },
-        layout: {
-          height: 300,
-          width: 140,
-          verticalTextAlign: 160,
-          horizontalTextAlign: 45,
-          strokeWidth: 10,
-          type: 'circle',
-        },
-      },
     };
   },
   computed: {
@@ -213,26 +186,3 @@ export default {
   },
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.progress-bar {
-  display: inline-block;
-  width: 0;
-  height: 100%;
-  font-size: 16px;
-  line-height: 25px;
-  color: #ff6e00;
-  text-align: center;
-  transition: all 0.6s ease;
-  padding-top: 25px;
-  margin: 24px;
-  text-shadow: none;
-}
-</style>
-
-<style>
-circle {
-  transition: stroke-dashoffset 500ms ease-in 0s;
-}
-</style>
