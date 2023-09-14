@@ -7,6 +7,14 @@
           {{ $t('pageFirmware.alert.operationInProgress') }}
         </p>
       </alert>
+      <b-progress v-if="!isProgressComplete">
+        <b-progress-bar
+          striped
+          animated
+          :value="updateIndicatorValue"
+          :aria-label="$t('global.ariaLabel.progressBar')"
+        />
+      </b-progress>
       <!-- Power off server warning alert -->
       <alert v-else-if="!isServerOff" variant="warning" class="mb-5">
         <p class="mb-0">
@@ -28,16 +36,6 @@
       </alert>
     </b-col>
   </b-row>
-  <transition name="fade">
-    <b-progress v-if="!isProgressComplete">
-      <b-progress-bar
-        striped
-        animated
-        :value="updateIndicatorValue"
-        :aria-label="$t('global.ariaLabel.progressBar')"
-      />
-    </b-progress>
-  </transition>
 </template>
 
 <script>
