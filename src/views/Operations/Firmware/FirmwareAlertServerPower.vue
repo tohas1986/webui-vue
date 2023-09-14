@@ -68,10 +68,10 @@ export default {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -0.4rem;
+  bottom: -15rem;
   opacity: 1;
   transition: opacity $duration--moderate-01 $standard-easing--productive;
-  height: 0.4rem;
+  height: 1.5rem;
 
   &.fade-enter, // Remove this vue2 based only class when switching to vue3
   &.fade-enter-from, // This is vue3 based only class modified from 'fade-enter'
