@@ -167,7 +167,7 @@ export default {
       for (let i = 0; i < 20; i++) {
         this.startLoader();
         setTimeout(() => {
-          this.endLoader(); 
+          this.endLoader();
         }, 2000);
       }
     },
