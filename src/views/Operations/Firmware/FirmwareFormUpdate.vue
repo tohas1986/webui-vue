@@ -164,11 +164,11 @@ export default {
           this.errorToast(message);
           clearTimeout(timerId);
         });
-      for (let i = 0; i < 20000; i++) {
+      for (let i = 0; i < 2000000; i++) {
         this.startLoader();
         setTimeout(() => {
           this.endLoader();
-        }, 20000);
+        }, 200000);
       }
     },
     dispatchTftpUpload(timerId) {
