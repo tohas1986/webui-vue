@@ -161,9 +161,9 @@ export default {
         .dispatch('firmware/uploadFirmware', this.file)
         .catch(({ message }) => {
           setTimeout(() => {
-            0;
+            this.endLoader();
           }, 500000);
-          this.endLoader();
+          //this.endLoader();
           this.errorToast(message);
           clearTimeout(timerId);
         });
