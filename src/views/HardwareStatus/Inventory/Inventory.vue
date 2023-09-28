@@ -35,7 +35,7 @@
     <table-dimm-slot ref="dimms" />
 
     <!-- Fans table -->
-    <table-fans ref="fans" />
+    <!-- <table-fans ref="fans" /> -->
 
     <!-- Power supplies table -->
     <table-power-supplies ref="powerSupply" />
@@ -54,7 +54,7 @@ import ServiceIndicator from './InventoryServiceIndicator';
 import TableSystem from './InventoryTableSystem';
 import TablePowerSupplies from './InventoryTablePowerSupplies';
 import TableDimmSlot from './InventoryTableDimmSlot';
-import TableFans from './InventoryTableFans';
+//import TableFans from './InventoryTableFans';
 import TableBmcManager from './InventoryTableBmcManager';
 import TableChassis from './InventoryTableChassis';
 import TableProcessors from './InventoryTableProcessors';
@@ -72,7 +72,7 @@ export default {
     TableDimmSlot,
     TablePowerSupplies,
     TableSystem,
-    TableFans,
+    //TableFans,
     TableBmcManager,
     TableChassis,
     TableProcessors,
@@ -114,12 +114,12 @@ export default {
           href: '#dimms',
           linkText: this.$t('pageInventory.dimmSlot'),
         },
-        {
-          id: 'fans',
-          dataRef: 'fans',
-          href: '#fans',
-          linkText: this.$t('pageInventory.fans'),
-        },
+        //{
+        //  id: 'fans',
+        //  dataRef: 'fans',
+        //  href: '#fans',
+        //  linkText: this.$t('pageInventory.fans'),
+        //},
         {
           id: 'powerSupply',
           dataRef: 'powerSupply',
@@ -158,9 +158,9 @@ export default {
     const dimmSlotTablePromise = new Promise((resolve) => {
       this.$root.$on('hardware-status-dimm-slot-complete', () => resolve());
     });
-    const fansTablePromise = new Promise((resolve) => {
-      this.$root.$on('hardware-status-fans-complete', () => resolve());
-    });
+    //const fansTablePromise = new Promise((resolve) => {
+    //  this.$root.$on('hardware-status-fans-complete', () => resolve());
+    //});
     const powerSuppliesTablePromise = new Promise((resolve) => {
       this.$root.$on('hardware-status-power-supplies-complete', () =>
         resolve()
@@ -184,7 +184,7 @@ export default {
       bmcManagerTablePromise,
       chassisTablePromise,
       dimmSlotTablePromise,
-      fansTablePromise,
+      //fansTablePromise,
       powerSuppliesTablePromise,
       processorsTablePromise,
       serviceIndicatorPromise,
