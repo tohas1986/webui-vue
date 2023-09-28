@@ -44,7 +44,7 @@
     <table-processors ref="processors" />
 
     <!-- Assembly table -->
-    <table-assembly ref="assembly" />
+    <!--<table-assembly ref="assembly" /> -->
   </b-container>
 </template>
 
