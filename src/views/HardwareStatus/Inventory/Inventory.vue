@@ -38,7 +38,7 @@
     <!-- <table-fans ref="fans" /> -->
 
     <!-- Power supplies table -->
-    <table-power-supplies ref="powerSupply" />
+    <!-- <table-power-supplies ref="powerSupply" /> -->
 
     <!-- Processors table -->
     <table-processors ref="processors" />
@@ -52,7 +52,7 @@
 import PageTitle from '@/components/Global/PageTitle';
 import ServiceIndicator from './InventoryServiceIndicator';
 import TableSystem from './InventoryTableSystem';
-import TablePowerSupplies from './InventoryTablePowerSupplies';
+//import TablePowerSupplies from './InventoryTablePowerSupplies';
 import TableDimmSlot from './InventoryTableDimmSlot';
 //import TableFans from './InventoryTableFans';
 import TableBmcManager from './InventoryTableBmcManager';
@@ -70,7 +70,7 @@ export default {
     PageTitle,
     ServiceIndicator,
     TableDimmSlot,
-    TablePowerSupplies,
+    //TablePowerSupplies,
     TableSystem,
     //TableFans,
     TableBmcManager,
@@ -120,12 +120,12 @@ export default {
         //  href: '#fans',
         //  linkText: this.$t('pageInventory.fans'),
         //},
-        {
-          id: 'powerSupply',
-          dataRef: 'powerSupply',
-          href: '#powerSupply',
-          linkText: this.$t('pageInventory.powerSupplies'),
-        },
+        //{
+        //  id: 'powerSupply',
+        //  dataRef: 'powerSupply',
+        //  href: '#powerSupply',
+        //  linkText: this.$t('pageInventory.powerSupplies'),
+        //},
         {
           id: 'processors',
           dataRef: 'processors',
@@ -161,11 +161,11 @@ export default {
     //const fansTablePromise = new Promise((resolve) => {
     //  this.$root.$on('hardware-status-fans-complete', () => resolve());
     //});
-    const powerSuppliesTablePromise = new Promise((resolve) => {
-      this.$root.$on('hardware-status-power-supplies-complete', () =>
-        resolve()
-      );
-    });
+    //const powerSuppliesTablePromise = new Promise((resolve) => {
+    //  this.$root.$on('hardware-status-power-supplies-complete', () =>
+    //    resolve()
+    //  );
+    //});
     const processorsTablePromise = new Promise((resolve) => {
       this.$root.$on('hardware-status-processors-complete', () => resolve());
     });
@@ -185,7 +185,7 @@ export default {
       chassisTablePromise,
       dimmSlotTablePromise,
       //fansTablePromise,
-      powerSuppliesTablePromise,
+      //powerSuppliesTablePromise,
       processorsTablePromise,
       serviceIndicatorPromise,
       systemTablePromise,
