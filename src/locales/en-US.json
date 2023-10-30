@@ -375,7 +375,7 @@
     "pageInventory": {
         "dimmSlot": "DIMM slot",
         "pcie": "PCIe devices",
-        "fans": "Fans",
+        "fans": "PCIe devices",
         "powerSupplies": "Power supplies",
         "bmcManager": "BMC manager",
         "chassis": "Chassis",

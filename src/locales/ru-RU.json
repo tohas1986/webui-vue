@@ -375,7 +375,7 @@
     "pageInventory": {
         "dimmSlot": "Слоты DIMM",
         "pcie": "PCIe устройства",
-        "fans": "Вентиляторы",
+        "fans": "PCIe устройства",
         "powerSupplies": "Источники питания",
         "bmcManager": "BMC",
         "chassis": "Шасси",
