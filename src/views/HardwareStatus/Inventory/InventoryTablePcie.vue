@@ -80,33 +80,6 @@
                 <dt>{{ $t('pageInventory.table.deviceID') }}:</dt>
                 <dd>{{ dataFormatter(item.deviceID) }}</dd>
               </dl>
-              <dl>
-                <!-- Spare Part Number -->
-                <dt>{{ $t('pageInventory.table.sparePartNumber') }}:</dt>
-                <dd>{{ dataFormatter(item.sparePartNumber) }}</dd>
-              </dl>
-              <dl>
-                <!-- Model -->
-                <dt>{{ $t('pageInventory.table.model') }}:</dt>
-                <dd>{{ dataFormatter(item.model) }}</dd>
-              </dl>
-            </b-col>
-            <b-col sm="6" xl="6">
-              <dl>
-                <!-- Status-->
-                <dt>{{ $t('pageInventory.table.statusState') }}:</dt>
-                <dd>{{ dataFormatter(item.statusState) }}</dd>
-              </dl>
-            </b-col>
-          </b-row>
-          <div class="section-divider mb-3 mt-3"></div>
-          <b-row>
-            <b-col sm="6" xl="6">
-              <dl>
-                <!-- Description -->
-                <dt>{{ $t('pageInventory.table.description') }}:</dt>
-                <dd>{{ dataFormatter(item.description) }}</dd>
-              </dl>
             </b-col>
           </b-row>
         </b-container>
@@ -165,11 +138,6 @@ export default {
           label: this.$t('pageInventory.table.locationNumber'),
           formatter: this.dataFormatter,
         },
-        {
-          key: 'identifyLed',
-          label: this.$t('pageInventory.table.identifyLed'),
-          formatter: this.dataFormatter,
-        },
       ],
       searchFilter: searchFilter,
       searchTotalFilteredRows: 0,
@@ -180,7 +148,7 @@ export default {
     filteredRows() {
       return this.searchFilter
         ? this.searchTotalFilteredRows
-        : this.pcieDev.length;
+        : this.pcie.length;
     },
     pcie() {
       return this.$store.getters['pcie/pcie'];
@@ -201,17 +169,6 @@ export default {
     },
     onFiltered(filteredItems) {
       this.searchTotalFilteredRows = filteredItems.length;
-    },
-    toggleIdentifyLedValue(row) {
-      this.$store
-        .dispatch('memory/updateIdentifyLedValue', {
-          uri: row.uri,
-          identifyLed: row.identifyLed,
-        })
-        .catch(({ message }) => this.errorToast(message));
-    },
-    hasIdentifyLed(identifyLed) {
-      return typeof identifyLed === 'boolean';
     },
   },
 };

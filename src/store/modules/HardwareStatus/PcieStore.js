@@ -30,7 +30,6 @@ const PcieStore = {
             sparePartNumber: SparePartNumber,
             model: Model,
             description: Description,
-            identifyLed: LocationIndicatorActive,
             uri: data['@odata.id'],
           };
         });
@@ -46,23 +45,6 @@ const PcieStore = {
           })
           .then((response) => commit('setPcieInfo', response))
           .catch((error) => console.log(error));
-      },
-      async updateIdentifyLedValue({ dispatch }, led) {
-        const uri = led.uri;
-        const updatedIdentifyLedValue = {
-          LocationIndicatorActive: led.identifyLed,
-        };
-        return await api.patch(uri, updatedIdentifyLedValue).catch((error) => {
-          dispatch('getPcie');
-          console.log('error', error);
-          if (led.identifyLed) {
-            throw new Error(i18n.t('pageInventory.toast.errorEnableIdentifyLed'));
-          } else {
-            throw new Error(
-              i18n.t('pageInventory.toast.errorDisableIdentifyLed')
-            );
-          }
-        });
       },
     },
   };
