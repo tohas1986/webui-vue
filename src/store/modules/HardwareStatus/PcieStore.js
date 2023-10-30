@@ -4,14 +4,14 @@ import i18n from '@/i18n';
 const PcieStore = {
     namespaced: true,
     state: {
-      pcieDev: [],
+      pcie: [],
     },
     getters: {
-      pcieDev: (state) => state.pcieDev,
+      pcie: (state) => state.pcie,
     },
     mutations: {
       setPcieInfo: (state, data) => {
-        state.pcieDev = data.map(({ data }) => {
+        state.pcie = data.map(({ data }) => {
           const {
             Id,
             Status = {},
@@ -37,7 +37,7 @@ const PcieStore = {
       },
     },
     actions: {
-      async getPcieDev({ commit }) {
+      async getPcie({ commit }) {
         return await api
           .get('/redfish/v1/Systems/system/PCIeDevices')        //Check it in Redfish implementation!!!
           .then(({ data: { Members } }) => {
@@ -53,7 +53,7 @@ const PcieStore = {
           LocationIndicatorActive: led.identifyLed,
         };
         return await api.patch(uri, updatedIdentifyLedValue).catch((error) => {
-          dispatch('getPcieDev');
+          dispatch('getPcie');
           console.log('error', error);
           if (led.identifyLed) {
             throw new Error(i18n.t('pageInventory.toast.errorEnableIdentifyLed'));

@@ -10,7 +10,7 @@
       <b-col sm="6" md="3" xl="2">
         <table-cell-count
           :filtered-items-count="filteredRows"
-          :total-number-of-cells="pcieDev.length"
+          :total-number-of-cells="pcie.length"
         ></table-cell-count>
       </b-col>
     </b-row>
@@ -21,7 +21,7 @@
       sort-by="health"
       responsive="md"
       show-empty
-      :items="pcieDev"
+      :items="pcie"
       :fields="fields"
       :sort-desc="true"
       :sort-compare="sortCompare"
@@ -35,7 +35,7 @@
       <template #cell(expandRow)="row">
         <b-button
           variant="link"
-          data-test-id="hardwareStatus-button-expandPcieDev"
+          data-test-id="hardwareStatus-button-expandPcie"
           :title="expandRowLabel"
           class="btn-icon-only"
           @click="toggleRowDetails(row)"
@@ -183,13 +183,13 @@ export default {
         : this.pcieDev.length;
     },
     pcie() {
-      return this.$store.getters['pcie/pcieDev'];
+      return this.$store.getters['pcie/pcie'];
     },
   },
   created() {
-    this.$store.dispatch('pcie/getPcieDev').finally(() => {
+    this.$store.dispatch('pcie/getPcie').finally(() => {
       // Emit initial data fetch complete to parent component
-      this.$root.$emit('hardware-status-pcieDev-slot-complete');
+      this.$root.$emit('hardware-status-pcie-slot-complete');
       this.isBusy = false;
     });
   },
