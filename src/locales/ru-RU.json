@@ -374,6 +374,7 @@
     },
     "pageInventory": {
         "dimmSlot": "Слоты DIMM",
+        "pcie": "PCIe устройства",
         "fans": "Вентиляторы",
         "powerSupplies": "Источники питания",
         "bmcManager": "BMC",
