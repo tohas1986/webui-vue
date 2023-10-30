@@ -47,7 +47,7 @@
     <!--<table-assembly ref="assembly" /> -->
 
     <!-- PCIe devices table -->
-    <table-pcie ref="pcie" />
+    <!-- <table-pcie ref="pcie" /> -->
   </b-container>
 </template>
 
@@ -63,7 +63,7 @@ import TableChassis from './InventoryTableChassis';
 import TableProcessors from './InventoryTableProcessors';
 //import TableAssembly from './InventoryTableAssembly';
 //TODO: Create vue InventoryTablePcie file ######################
-import TablePcie from './InventoryTablePcie';
+//import TablePcie from './InventoryTablePcie';
 //###############################################################
 import LoadingBarMixin from '@/components/Mixins/LoadingBarMixin';
 import PageSection from '@/components/Global/PageSection';
@@ -83,7 +83,7 @@ export default {
     TableChassis,
     TableProcessors,
     //TableAssembly,
-    TablePcie,
+    //TablePcie,
     PageSection,
     JumpLink: JumpLink16,
   },
@@ -145,12 +145,12 @@ export default {
         //  href: '#assembly',
         //  linkText: this.$t('pageInventory.assemblies'),
         //},
-        {
-          id: 'pcie',
-          dataRef: 'pcie',
-          href: '#pcie',
-          linkText: this.$t('pageInventory.pcie'),
-        },
+        //{
+        //  id: 'pcie',
+        //  dataRef: 'pcie',
+        //  href: '#pcie',
+        //  linkText: this.$t('pageInventory.pcie'),
+        //},
       ],
     };
   },
@@ -182,9 +182,9 @@ export default {
     const processorsTablePromise = new Promise((resolve) => {
       this.$root.$on('hardware-status-processors-complete', () => resolve());
     });
-    const pcieTablePromise = new Promise((resolve) => {
-      this.$root.$on('hardware-status-pcie-complete', () => resolve());
-    });
+    //const pcieTablePromise = new Promise((resolve) => {
+    //  this.$root.$on('hardware-status-pcie-complete', () => resolve());
+    //});
     const serviceIndicatorPromise = new Promise((resolve) => {
       this.$root.$on('hardware-status-service-complete', () => resolve());
     });
@@ -203,7 +203,7 @@ export default {
       //fansTablePromise,
       //powerSuppliesTablePromise,
       processorsTablePromise,
-      pcieTablePromise,
+      //pcieTablePromise,
       serviceIndicatorPromise,
       systemTablePromise,
       //assemblyTablePromise,
