@@ -21,7 +21,7 @@
       responsive="md"
       sort-by="health"
       show-empty
-      :items="pcie"                                                 
+      :items="pcie"
       :fields="fields"
       :sort-desc="true"
       :sort-compare="sortCompare"
@@ -138,21 +138,21 @@ export default {
           formatter: this.dataFormatter,
           sortable: true,
         },
-        /*{
-          key: 'health',
-          label: this.$t('pageInventory.table.health'),
-          formatter: this.dataFormatter,
-          sortable: true,
-          tdClass: 'text-nowrap',
-        },*/
+        //{
+        //  key: 'health',
+        //  label: this.$t('pageInventory.table.health'),
+        //  formatter: this.dataFormatter,
+        //  sortable: true,
+        //  tdClass: 'text-nowrap',
+        //},
         {
-          key: 'vendorID',                                //partNumber
+          key: 'vendorID',
           label: this.$t('pageInventory.table.partNumber'),
           formatter: this.dataFormatter,
           sortable: true,
         },
         {
-          key: 'deviceID',                              //serialNumber
+          key: 'deviceID',
           label: this.$t('pageInventory.table.serialNumber'),
           formatter: this.dataFormatter,
         },
