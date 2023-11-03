@@ -21,6 +21,7 @@ import SystemStore from './modules/HardwareStatus/SystemStore';
 import PowerSupplyStore from './modules/HardwareStatus/PowerSupplyStore';
 import MemoryStore from './modules/HardwareStatus/MemoryStore';
 import FanStore from './modules/HardwareStatus/FanStore';
+import PcieStore from './modules/HardwareStatus/PcieStore';
 import ChassisStore from './modules/HardwareStatus/ChassisStore';
 import BmcStore from './modules/HardwareStatus/BmcStore';
 import ProcessorStore from './modules/HardwareStatus/ProcessorStore';
