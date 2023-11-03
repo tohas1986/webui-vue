@@ -21,7 +21,7 @@
       responsive="md"
       sort-by="health"
       show-empty
-      :items="fans"
+      :items="pcie"                                                 
       :fields="fields"
       :sort-desc="true"
       :sort-compare="sortCompare"
@@ -55,29 +55,29 @@
         <b-container fluid>
           <b-row>
             <b-col sm="6" xl="4">
-              <dl>
-                <!-- Name -->
-                <dt>{{ $t('pageInventory.table.name') }}:</dt>
-                <dd>{{ dataFormatter(item.name) }}</dd>
-              </dl>
-              <dl>
+              <!--<dl>-->
+              <!--   Name -->
+              <!--  <dt>{{ $t('pageInventory.table.name') }}:</dt>-->
+              <!--  <dd>{{ dataFormatter(item.name) }}</dd>-->
+              <!--</dl>-->
+              <!--<dl>-->
                 <!-- Serial number -->
-                <dt>{{ $t('pageInventory.table.serialNumber') }}:</dt>
-                <dd>{{ dataFormatter(item.serialNumber) }}</dd>
+                <dt>{{ $t('pageInventory.table.deviceID') }}:</dt>
+                <dd>{{ dataFormatter(item.deviceID) }}</dd>
               </dl>
               <dl>
                 <!-- Part number -->
-                <dt>{{ $t('pageInventory.table.partNumber') }}:</dt>
-                <dd>{{ dataFormatter(item.partNumber) }}</dd>
+                <dt>{{ $t('pageInventory.table.vendorID') }}:</dt>
+                <dd>{{ dataFormatter(item.vendorID) }}</dd>
               </dl>
-              <dl>
+              <!--<dl> -->
                 <!-- Fan speed -->
-                <dt>{{ $t('pageInventory.table.fanSpeed') }}:</dt>
-                <dd>
-                  {{ dataFormatter(item.speed) }}
-                  {{ $t('unit.RPM') }}
-                </dd>
-              </dl>
+              <!--  <dt>{{ $t('pageInventory.table.fanSpeed') }}:</dt>-->
+              <!--  <dd>-->
+              <!--    {{ dataFormatter(item.speed) }}-->
+              <!--    {{ $t('unit.RPM') }}-->
+              <!--  </dd>-->
+              <!-- </dl>-->
             </b-col>
             <b-col sm="6" xl="4">
               <dl>
@@ -138,21 +138,21 @@ export default {
           formatter: this.dataFormatter,
           sortable: true,
         },
-        {
+        /*{
           key: 'health',
           label: this.$t('pageInventory.table.health'),
           formatter: this.dataFormatter,
           sortable: true,
           tdClass: 'text-nowrap',
-        },
+        },*/
         {
-          key: 'partNumber',
+          key: 'vendorID',                                //partNumber
           label: this.$t('pageInventory.table.partNumber'),
           formatter: this.dataFormatter,
           sortable: true,
         },
         {
-          key: 'serialNumber',
+          key: 'deviceID',                              //serialNumber
           label: this.$t('pageInventory.table.serialNumber'),
           formatter: this.dataFormatter,
         },
