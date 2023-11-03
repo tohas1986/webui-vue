@@ -60,7 +60,7 @@
               <!--  <dt>{{ $t('pageInventory.table.name') }}:</dt>-->
               <!--  <dd>{{ dataFormatter(item.name) }}</dd>-->
               <!--</dl>-->
-              <!--<dl>-->
+              <dl>
                 <!-- Serial number -->
                 <dt>{{ $t('pageInventory.table.deviceID') }}:</dt>
                 <dd>{{ dataFormatter(item.deviceID) }}</dd>
