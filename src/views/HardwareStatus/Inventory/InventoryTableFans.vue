@@ -71,7 +71,7 @@
                 <dd>{{ dataFormatter(item.vendorID) }}</dd>
               </dl>
               <!--<dl> -->
-                <!-- Fan speed -->
+              <!-- Fan speed -->
               <!--  <dt>{{ $t('pageInventory.table.fanSpeed') }}:</dt>-->
               <!--  <dd>-->
               <!--    {{ dataFormatter(item.speed) }}-->
