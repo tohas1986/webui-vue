@@ -10,7 +10,7 @@
       <b-col sm="6" md="3" xl="2">
         <table-cell-count
           :filtered-items-count="filteredRows"
-          :total-number-of-cells="fans.length"
+          :total-number-of-cells="pcie.length"
         ></table-cell-count>
       </b-col>
     </b-row>
@@ -35,7 +35,7 @@
       <template #cell(expandRow)="row">
         <b-button
           variant="link"
-          data-test-id="hardwareStatus-button-expandFans"
+          data-test-id="hardwareStatus-button-expandPcie"
           :title="expandRowLabel"
           class="btn-icon-only"
           @click="toggleRowDetails(row)"
@@ -166,9 +166,9 @@ export default {
     filteredRows() {
       return this.searchFilter
         ? this.searchTotalFilteredRows
-        : this.fans.length;
+        : this.pcie.length;
     },
-    fans() {
+    pcie() {
       return this.$store.getters['pcie/pcie'];
     },
   },
