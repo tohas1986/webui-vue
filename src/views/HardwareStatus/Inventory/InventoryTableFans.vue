@@ -169,11 +169,11 @@ export default {
         : this.fans.length;
     },
     fans() {
-      return this.$store.getters['fan/fans'];
+      return this.$store.getters['pcie/pcie'];
     },
   },
   created() {
-    this.$store.dispatch('fan/getFanInfo').finally(() => {
+    this.$store.dispatch('pcie/getPcie').finally(() => {
       // Emit initial data fetch complete to parent component
       this.$root.$emit('hardware-status-fans-complete');
       this.isBusy = false;

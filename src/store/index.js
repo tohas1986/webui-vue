@@ -62,6 +62,7 @@ export default new Vuex.Store({
     system: SystemStore,
     memory: MemoryStore,
     fan: FanStore,
+    pcie: PcieStore,
     chassis: ChassisStore,
     bmc: BmcStore,
     processors: ProcessorStore,
