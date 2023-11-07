@@ -139,11 +139,11 @@ export default {
           formatter: this.dataFormatter,
           sortable: true,
         },
-        {
-          key: 'deviceType',
-          label: this.$t('pageInventory.table.deviceType'),
-          formatter: this.dataFormatter,
-        },
+        //{
+        //  key: 'deviceType',
+        //  label: this.$t('pageInventory.table.deviceType'),
+        //  formatter: this.dataFormatter,
+        //},
       ],
       searchFilter: searchFilter,
       searchTotalFilteredRows: 0,
