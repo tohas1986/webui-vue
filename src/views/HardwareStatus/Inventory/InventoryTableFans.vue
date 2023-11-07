@@ -79,18 +79,6 @@
               <!--  </dd>-->
               <!-- </dl>-->
             </b-col>
-            <b-col sm="6" xl="4">
-              <dl>
-                <!-- Status state -->
-                <dt>{{ $t('pageInventory.table.statusState') }}:</dt>
-                <dd>{{ dataFormatter(item.statusState) }}</dd>
-              </dl>
-              <dl>
-                <!-- Health Rollup state -->
-                <dt>{{ $t('pageInventory.table.statusHealthRollup') }}:</dt>
-                <dd>{{ dataFormatter(item.healthRollup) }}</dd>
-              </dl>
-            </b-col>
           </b-row>
         </b-container>
       </template>
@@ -146,14 +134,14 @@ export default {
         //  tdClass: 'text-nowrap',
         //},
         {
-          key: 'vendorID',
-          label: this.$t('pageInventory.table.partNumber'),
+          key: 'manufacturer',
+          label: this.$t('pageInventory.table.manufacturer'),
           formatter: this.dataFormatter,
           sortable: true,
         },
         {
-          key: 'deviceID',
-          label: this.$t('pageInventory.table.serialNumber'),
+          key: 'deviceType',
+          label: this.$t('pageInventory.table.deviceType'),
           formatter: this.dataFormatter,
         },
       ],
