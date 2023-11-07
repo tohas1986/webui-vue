@@ -37,7 +37,7 @@ const PcieStore = {
   actions: {
     async getPcie({ commit }) {
       return await api
-        .get('/redfish/v1/Systems/system/PCIeDevices/S0B0D0')
+        .get('/redfish/v1/Systems/system/PCIeDevices')
         .then(({ data: { Members } }) => {
           const promises = Members.map((item) => api.get(item['@odata.id']));
           return api.all(promises);
