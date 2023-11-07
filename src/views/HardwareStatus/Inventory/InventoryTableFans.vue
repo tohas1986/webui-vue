@@ -62,13 +62,13 @@
               <!--</dl>-->
               <dl>
                 <!-- Serial number -->
-                <dt>{{ $t('pageInventory.table.deviceID') }}:</dt>
-                <dd>{{ dataFormatter(item.deviceID) }}</dd>
+                <dt>{{ $t('pageInventory.table.manufacturer') }}:</dt>
+                <dd>{{ dataFormatter(item.manufacturer) }}</dd>
               </dl>
               <dl>
                 <!-- Part number -->
-                <dt>{{ $t('pageInventory.table.vendorID') }}:</dt>
-                <dd>{{ dataFormatter(item.vendorID) }}</dd>
+                <dt>{{ $t('pageInventory.table.deviceType') }}:</dt>
+                <dd>{{ dataFormatter(item.deviceType) }}</dd>
               </dl>
               <!--<dl> -->
               <!-- Fan speed -->

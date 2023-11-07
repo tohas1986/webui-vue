@@ -13,22 +13,13 @@ const PcieStore = {
       state.pcie = data.map(({ data }) => {
         const {
           Id,
-          Status = {},
-          VendorID,
-          DeviceID,
-          SparePartNumber,
-          Model,
-          Description,
+          Manufacturer,
+          DeviceType,
         } = data;
         return {
           id: Id,
-          health: Status.Health,
-          vendorID: VendorID,
-          deviceID: DeviceID,
-          statusState: Status.State,
-          sparePartNumber: SparePartNumber,
-          model: Model,
-          description: Description,
+          manufacturer: Manufacturer,
+          deviceType: DeviceType,
           uri: data['@odata.id'],
         };
       });
