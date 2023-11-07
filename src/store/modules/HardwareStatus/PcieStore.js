@@ -38,11 +38,12 @@ const PcieStore = {
     async getPcie({ commit }) {
       return await api
         .get('/redfish/v1/Systems/system/PCIeDevices/S0B0D0')
-        .then(({ data: { Members } }) => {
-          const promises = Members.map((item) => api.get(item['@odata.id']));
-          return api.all(promises);
-        })
-        .then((response) => commit('setPcieInfo', response))
+        .then(({ data }) => commit('setPcieInfo', data))
+        //.then(({ data: { Members } }) => {
+        //  const promises = Members.map((item) => api.get(item['@odata.id']));
+        //  return api.all(promises);
+        //})
+        //.then((response) => commit('setPcieInfo', response))
         .catch((error) => console.log(error));
     },
   },
