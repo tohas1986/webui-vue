@@ -83,7 +83,7 @@
 <script>
 import PageSection from '@/components/Global/PageSection';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
-import TableCellCount from '@/components/Global/TableCellCount';
+//import TableCellCount from '@/components/Global/TableCellCount';
 
 import StatusIcon from '@/components/Global/StatusIcon';
 import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
@@ -97,7 +97,7 @@ import TableRowExpandMixin, {
 } from '@/components/Mixins/TableRowExpandMixin';
 
 export default {
-  components: { IconChevron, PageSection, StatusIcon, Search, TableCellCount },
+  components: { IconChevron, PageSection, StatusIcon, Search },
   mixins: [
     TableRowExpandMixin,
     DataFormatterMixin,
