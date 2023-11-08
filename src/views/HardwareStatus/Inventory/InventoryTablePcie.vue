@@ -7,19 +7,13 @@
           @clear-search="onClearSearchInput"
         />
       </b-col>
-      <b-col sm="6" md="3" xl="2">
-        <table-cell-count
-          :filtered-items-count="filteredRows"
-          :total-number-of-cells="pcie.length"
-        ></table-cell-count>
-      </b-col>
     </b-row>
     <b-table
       sort-icon-left
       no-sort-reset
       hover
-      sort-by="health"
       responsive="md"
+      sort-by="health"
       show-empty
       :items="pcie"
       :fields="fields"
@@ -50,36 +44,34 @@
         <status-icon :status="statusIcon(value)" />
         {{ value }}
       </template>
-      <!-- Toggle identify LED -->
-      <template #cell(identifyLed)="row">
-        <b-form-checkbox
-          v-if="hasIdentifyLed(row.item.identifyLed)"
-          v-model="row.item.identifyLed"
-          name="switch"
-          switch
-          @change="toggleIdentifyLedValue(row.item)"
-        >
-          <span v-if="row.item.identifyLed">
-            {{ $t('global.status.on') }}
-          </span>
-          <span v-else> {{ $t('global.status.off') }} </span>
-        </b-form-checkbox>
-        <div v-else>--</div>
-      </template>
+
       <template #row-details="{ item }">
         <b-container fluid>
           <b-row>
-            <b-col sm="6" xl="6">
+            <b-col sm="6" xl="4">
+              <!--<dl>-->
+              <!--   Name -->
+              <!--  <dt>{{ $t('pageInventory.table.name') }}:</dt>-->
+              <!--  <dd>{{ dataFormatter(item.name) }}</dd>-->
+              <!--</dl>-->
               <dl>
-                <!-- Part Number -->
-                <dt>{{ $t('pageInventory.table.vendorID') }}:</dt>
-                <dd>{{ dataFormatter(item.vendorID) }}</dd>
+                <!-- Serial number -->
+                <dt>{{ $t('pageInventory.table.manufacturer') }}:</dt>
+                <dd>{{ dataFormatter(item.manufacturer) }}</dd>
               </dl>
               <dl>
-                <!-- Serial Number -->
-                <dt>{{ $t('pageInventory.table.deviceID') }}:</dt>
-                <dd>{{ dataFormatter(item.deviceID) }}</dd>
+                <!-- Part number -->
+                <dt>{{ $t('pageInventory.table.deviceType') }}:</dt>
+                <dd>{{ dataFormatter(item.deviceType) }}</dd>
               </dl>
+              <!--<dl> -->
+              <!-- Fan speed -->
+              <!--  <dt>{{ $t('pageInventory.table.fanSpeed') }}:</dt>-->
+              <!--  <dd>-->
+              <!--    {{ dataFormatter(item.speed) }}-->
+              <!--    {{ $t('unit.RPM') }}-->
+              <!--  </dd>-->
+              <!-- </dl>-->
             </b-col>
           </b-row>
         </b-container>
@@ -91,10 +83,9 @@
 <script>
 import PageSection from '@/components/Global/PageSection';
 import IconChevron from '@carbon/icons-vue/es/chevron--down/20';
-
-import StatusIcon from '@/components/Global/StatusIcon';
 import TableCellCount from '@/components/Global/TableCellCount';
 
+import StatusIcon from '@/components/Global/StatusIcon';
 import DataFormatterMixin from '@/components/Mixins/DataFormatterMixin';
 import TableSortMixin from '@/components/Mixins/TableSortMixin';
 import Search from '@/components/Global/Search';
@@ -121,21 +112,30 @@ export default {
           key: 'expandRow',
           label: '',
           tdClass: 'table-row-expand',
+          sortable: false,
         },
         {
           key: 'id',
           label: this.$t('pageInventory.table.id'),
           formatter: this.dataFormatter,
+          sortable: true,
         },
+        //{
+        //  key: 'health',
+        //  label: this.$t('pageInventory.table.health'),
+        //  formatter: this.dataFormatter,
+        //  sortable: true,
+        //  tdClass: 'text-nowrap',
+        //},
         {
-          key: 'health',
-          label: this.$t('pageInventory.table.health'),
+          key: 'manufacturer',
+          label: this.$t('pageInventory.table.manufacturer'),
           formatter: this.dataFormatter,
-          tdClass: 'text-nowrap',
+          sortable: true,
         },
         {
-          key: 'locationNumber',
-          label: this.$t('pageInventory.table.locationNumber'),
+          key: 'deviceType',
+          label: this.$t('pageInventory.table.deviceType'),
           formatter: this.dataFormatter,
         },
       ],
@@ -157,7 +157,7 @@ export default {
   created() {
     this.$store.dispatch('pcie/getPcie').finally(() => {
       // Emit initial data fetch complete to parent component
-      this.$root.$emit('hardware-status-pcie-slot-complete');
+      this.$root.$emit('hardware-status-fans-complete');
       this.isBusy = false;
     });
   },

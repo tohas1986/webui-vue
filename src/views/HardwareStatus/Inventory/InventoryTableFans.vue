@@ -7,12 +7,6 @@
           @clear-search="onClearSearchInput"
         />
       </b-col>
-      <b-col sm="6" md="3" xl="2">
-        <table-cell-count
-          :filtered-items-count="filteredRows"
-          :total-number-of-cells="pcie.length"
-        ></table-cell-count>
-      </b-col>
     </b-row>
     <b-table
       sort-icon-left
