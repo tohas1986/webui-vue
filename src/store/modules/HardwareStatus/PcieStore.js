@@ -12,9 +12,9 @@ const PcieStore = {
     setPcieInfo: (state, data) => {
       state.pcie = data.map(({ data }) => {
         const {
-          Id,
-          Manufacturer,
-          DeviceType,
+ Id,
+ Manufacturer,
+ DeviceType,
         } = data;
         return {
           id: Id,
