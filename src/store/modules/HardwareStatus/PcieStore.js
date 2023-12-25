@@ -24,7 +24,7 @@ const PcieStore = {
           SerialNumber,
           SparePartNumber,
           Description,
-          MemoryType,
+          Status = {},
           LocationIndicatorActive,
           Location,
         } = data;
