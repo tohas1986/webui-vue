@@ -15,6 +15,18 @@ const PcieStore = {
           Id,
           Manufacturer,
           DeviceType,
+          BusWidthBits,
+          CapacityMiB,
+          DataWidthBits,
+          Enabled,
+          OperatingSpeedMhz,
+          PartNumber,
+          SerialNumber,
+          SparePartNumber,
+          Description,
+          MemoryType,
+          LocationIndicatorActive,
+          Location,
         } = data;
         return {
           id: Id,
