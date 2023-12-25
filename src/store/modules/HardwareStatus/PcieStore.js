@@ -42,7 +42,6 @@ const PcieStore = {
           statusState: Status.State,
           sparePartNumber: SparePartNumber,
           description: Description,
-          memoryType: MemoryType,
           identifyLed: LocationIndicatorActive,
           uri: data['@odata.id'],
           locationNumber: Location?.PartLocation?.ServiceLabel,
