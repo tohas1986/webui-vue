@@ -78,7 +78,7 @@ export default {
     TableDimmSlot,
     //TablePowerSupplies,
     TableSystem,
-    TableFans,
+    //TableFans,
     TableBmcManager,
     TableChassis,
     TableProcessors,
