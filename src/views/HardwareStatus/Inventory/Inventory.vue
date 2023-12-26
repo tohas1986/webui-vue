@@ -35,7 +35,7 @@
     <table-dimm-slot ref="dimms" />
 
     <!-- Fans table -->
-    <table-fans ref="fans" />
+    <!--<table-fans ref="fans" />-->
 
     <!-- Power supplies table -->
     <!-- <table-power-supplies ref="powerSupply" /> -->
@@ -121,12 +121,12 @@ export default {
           href: '#dimms',
           linkText: this.$t('pageInventory.dimmSlot'),
         },
-        {
-          id: 'fans',
-          dataRef: 'fans',
-          href: '#fans',
-          linkText: this.$t('pageInventory.fans'),
-        },
+        //{
+        //  id: 'fans',
+        //  dataRef: 'fans',
+        //  href: '#fans',
+        //  linkText: this.$t('pageInventory.fans'),
+        //},
         //{
         //  id: 'powerSupply',
         //  dataRef: 'powerSupply',
@@ -171,9 +171,9 @@ export default {
     const dimmSlotTablePromise = new Promise((resolve) => {
       this.$root.$on('hardware-status-dimm-slot-complete', () => resolve());
     });
-    const fansTablePromise = new Promise((resolve) => {
-      this.$root.$on('hardware-status-fans-complete', () => resolve());
-    });
+    //const fansTablePromise = new Promise((resolve) => {
+    //  this.$root.$on('hardware-status-fans-complete', () => resolve());
+    //});
     //const powerSuppliesTablePromise = new Promise((resolve) => {
     //  this.$root.$on('hardware-status-power-supplies-complete', () =>
     //    resolve()
@@ -200,7 +200,7 @@ export default {
       bmcManagerTablePromise,
       chassisTablePromise,
       dimmSlotTablePromise,
-      fansTablePromise,
+      //fansTablePromise,
       //powerSuppliesTablePromise,
       processorsTablePromise,
       pcieTablePromise,
