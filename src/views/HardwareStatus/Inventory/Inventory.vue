@@ -57,7 +57,7 @@ import ServiceIndicator from './InventoryServiceIndicator';
 import TableSystem from './InventoryTableSystem';
 //import TablePowerSupplies from './InventoryTablePowerSupplies';
 import TableDimmSlot from './InventoryTableDimmSlot';
-import TableFans from './InventoryTableFans';
+//import TableFans from './InventoryTableFans';
 import TableBmcManager from './InventoryTableBmcManager';
 import TableChassis from './InventoryTableChassis';
 import TableProcessors from './InventoryTableProcessors';
