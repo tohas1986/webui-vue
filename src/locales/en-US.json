@@ -946,9 +946,12 @@
             "password": "Password",
             "serverUri": "External server URI",
             "title": "Legacy mode configuration",
-            "username": "Username"
+            "username": "Username",
+            "mount": "Mount Type",
+            "imagePath": "Path to Image"
         },
         "toast": {
+            "errorImageFormat": "Please provide valid image .nrg / .ima / .iso or .img format!",
             "errorMounting": "Error mounting",
             "errorReadingFile": "Error reading file. Closing server.",
             "errorUnmounting": "Error unmounting",

@@ -944,9 +944,12 @@
             "password": "Пароль",
             "serverUri": "URI Внешнего сервера",
             "title": "Конфигурация Legacy режима",
-            "username": "Имя пользователя"
+            "username": "Имя пользователя",
+            "mount": "Тип подключения",
+            "imagePath": "Расположение образа"
         },
         "toast": {
+            "errorImageFormat": "Образ должен быть с расширением iso!",
             "errorMounting": "Ошибка монтирования",
             "errorReadingFile": "Ошибка чтения файла. Закрытие подключения.",
             "errorUnmounting": "Ошибка отмонтирования.",

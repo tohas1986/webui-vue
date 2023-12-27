@@ -168,10 +168,28 @@ export default {
     },
     startLegacy(connectionData) {
       var data = {};
-      data.Image = connectionData.serverUri;
+      switch (connectionData.transferProtocolType) {
+        case 'NFS':
+          data.Image =
+            'nfs://' +
+            connectionData.serverUri +
+            ':' +
+            connectionData.imagePath;
+          break;
+        case 'CIFS':
+          data.Image =
+            'smb://' + connectionData.serverUri + connectionData.imagePath;
+          break;
+        case 'HTTPS':
+          data.Image =
+            'https://' + connectionData.serverUri + connectionData.imagePath;
+          break;
+      }
       data.UserName = connectionData.username;
       data.Password = connectionData.password;
       data.WriteProtected = !connectionData.isRW;
+      data.TransferProtocolType = connectionData.transferProtocolType;
+      data.Inserted = true;
       this.startLoader();
       this.$store
         .dispatch('virtualMedia/mountImage', {
@@ -206,9 +224,12 @@ export default {
     },
     saveConnection(connectionData) {
       this.modalConfigureConnection.serverUri = connectionData.serverUri;
+      this.modalConfigureConnection.imagePath = connectionData.imagePath;
       this.modalConfigureConnection.username = connectionData.username;
       this.modalConfigureConnection.password = connectionData.password;
       this.modalConfigureConnection.isRW = connectionData.isRW;
+      this.modalConfigureConnection.transferProtocolType =
+        connectionData.transferProtocolType;
     },
     configureConnection(connectionData) {
       this.modalConfigureConnection = connectionData;

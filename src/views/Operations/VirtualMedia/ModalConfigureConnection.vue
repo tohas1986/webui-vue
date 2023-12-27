@@ -29,27 +29,55 @@
         </b-form-invalid-feedback>
       </b-form-group>
       <b-form-group
-        :label="$t('pageVirtualMedia.modal.username')"
-        label-for="username"
+        :label="$t('pageVirtualMedia.modal.imagePath')"
+        label-for="imagePath"
       >
         <b-form-input
-          id="username"
-          v-model="form.username"
+          id="imagePath"
+          v-model="form.imagePath"
           type="text"
-          data-test-id="configureConnection-input-username"
+          data-test-id="configureConnection-input-imagePath"
+          @input="$v.form.imagePath.$touch()"
         />
+        <b-form-invalid-feedback role="alert">
+          <template v-if="!$v.form.imagePath.required">
+            {{ $t('global.form.fieldRequired') }}
+          </template>
+        </b-form-invalid-feedback>
       </b-form-group>
-      <b-form-group
-        :label="$t('pageVirtualMedia.modal.password')"
-        label-for="password"
-      >
-        <b-form-input
-          id="password"
-          v-model="form.password"
-          type="password"
-          data-test-id="configureConnection-input-password"
-        />
+      <b-form-group :label="$t('pageVirtualMedia.modal.mount')">
+        <b-form-radio-group
+          id="mount-type-options"
+          v-model="form.transferProtocolType"
+          :options="options"
+          @change="mountChange($event)"
+        >
+        </b-form-radio-group>
       </b-form-group>
+      <div v-if="form.transferProtocolType !== 'NFS'">
+        <b-form-group
+          :label="$t('pageVirtualMedia.modal.username')"
+          label-for="username"
+        >
+          <b-form-input
+            id="username"
+            v-model="form.username"
+            type="text"
+            data-test-id="configureConnection-input-username"
+          />
+        </b-form-group>
+        <b-form-group
+          :label="$t('pageVirtualMedia.modal.password')"
+          label-for="password"
+        >
+          <b-form-input
+            id="password"
+            v-model="form.password"
+            type="password"
+            data-test-id="configureConnection-input-password"
+          />
+        </b-form-group>
+      </div>
       <b-form-group>
         <b-form-checkbox
           v-model="form.isRW"
@@ -72,9 +100,10 @@
 <script>
 import { required } from 'vuelidate/lib/validators';
 import VuelidateMixin from '@/components/Mixins/VuelidateMixin.js';
+import BVToastMixin from '@/components/Mixins/BVToastMixin';
 
 export default {
-  mixins: [VuelidateMixin],
+  mixins: [VuelidateMixin, BVToastMixin],
   props: {
     connection: {
       type: Object,
@@ -87,11 +116,18 @@ export default {
   },
   data() {
     return {
+      options: [
+        { text: 'CIFS', value: 'CIFS' },
+        { text: 'HTTPS', value: 'HTTPS' },
+        { text: 'NFS', value: 'NFS' },
+      ],
       form: {
         serverUri: null,
+        imagePath: null,
         username: null,
         password: null,
         isRW: false,
+        transferProtocolType: '',
       },
     };
   },
@@ -107,17 +143,31 @@ export default {
         serverUri: {
           required,
         },
+        imagePath: {
+          required,
+        },
       },
     };
   },
   methods: {
+    mountChange(input) {
+      if (input == 'NFS') {
+        this.form.username = '';
+        this.form.password = '';
+      }
+    },
     handleSubmit() {
       this.$v.$touch();
       if (this.$v.$invalid) return;
-      let connectionData = {};
-      Object.assign(connectionData, this.form);
-      this.$emit('ok', connectionData);
-      this.closeModal();
+      const ext = this.form.imagePath.split('.')[1];
+      if (ext == 'iso' || ext == 'img' || ext == 'ima' || ext == 'nrg') {
+        let connectionData = {};
+        Object.assign(connectionData, this.form);
+        this.$emit('ok', connectionData);
+        this.closeModal();
+      } else {
+        this.errorToast(this.$t('pageVirtualMedia.toast.errorImageFormat'));
+      }
     },
     initModal() {
       if (this.connection) {
@@ -131,9 +181,11 @@ export default {
     },
     resetForm() {
       this.form.serverUri = null;
+      this.form.imagePath = null;
       this.form.username = null;
       this.form.password = null;
       this.form.isRW = false;
+      this.form.transferProtocolType = '';
       this.$v.$reset();
     },
     onOk(bvModalEvt) {
