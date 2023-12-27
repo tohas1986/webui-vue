@@ -19,10 +19,14 @@ const VirtualMediaStore = {
     proxyDevices: [],
     legacyDevices: [],
     connections: [],
+    vmStarted: 0,
+    legacyStarted: 0,
   },
   getters: {
     proxyDevices: (state) => state.proxyDevices,
     legacyDevices: (state) => state.legacyDevices,
+    vmStarted: (state) => state.vmStarted,
+    legacyStarted: (state) => state.legacyStarted,
   },
   mutations: {
     setProxyDevicesData: (state, deviceData) =>
