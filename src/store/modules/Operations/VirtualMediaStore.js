@@ -38,7 +38,7 @@ const VirtualMediaStore = {
     async getData({ commit }) {
       const virtualMediaListEnabled =
         process.env.VUE_APP_VIRTUAL_MEDIA_LIST_ENABLED === 'true'
-          ? true
+          ? false
           : false;
       if (!virtualMediaListEnabled) {
         const device = {
