@@ -43,7 +43,7 @@
         </page-section>
       </b-col>
     </b-row>
-    <b-row v-if="loadImageFromExternalServer" class="mb-4">
+    <b-row class="mb-4">
       <b-col md="12">
         <page-section
           :section-title="$t('pageVirtualMedia.virtualMediaSubTitleSecond')"
