@@ -61,7 +61,6 @@
               >
                 <b-button
                   variant="primary"
-                  :disabled="device.isActive"
                   @click="configureConnection(device)"
                 >
                   {{ $t('pageVirtualMedia.configureConnection') }}
