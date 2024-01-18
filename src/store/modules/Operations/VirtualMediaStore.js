@@ -19,14 +19,10 @@ const VirtualMediaStore = {
     proxyDevices: [],
     legacyDevices: [],
     connections: [],
-    vmStarted: 0,
-    legacyStarted: 0,
   },
   getters: {
     proxyDevices: (state) => state.proxyDevices,
     legacyDevices: (state) => state.legacyDevices,
-    vmStarted: (state) => state.vmStarted,
-    legacyStarted: (state) => state.legacyStarted,
   },
   mutations: {
     setProxyDevicesData: (state, deviceData) =>
@@ -37,7 +33,9 @@ const VirtualMediaStore = {
   actions: {
     async getData({ commit }) {
       const virtualMediaListEnabled =
-        process.env.VUE_APP_VIRTUAL_MEDIA_LIST_ENABLED === 'true';
+        process.env.VUE_APP_VIRTUAL_MEDIA_LIST_ENABLED === 'true'
+          ? true
+          : false;
       if (!virtualMediaListEnabled) {
         const device = {
           id: i18n.t('pageVirtualMedia.defaultDeviceName'),

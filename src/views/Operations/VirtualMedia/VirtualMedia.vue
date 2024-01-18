@@ -13,7 +13,6 @@
                   v-if="!dev.isActive"
                   :id="concatId(dev.id)"
                   v-model="dev.file"
-                  accept=".iso, .img, .ima, .nrg"
                 >
                   <template #invalid>
                     <b-form-invalid-feedback role="alert">
@@ -43,7 +42,7 @@
         </page-section>
       </b-col>
     </b-row>
-    <b-row class="mb-4">
+    <b-row v-if="loadImageFromExternalServer" class="mb-4">
       <b-col md="12">
         <page-section
           :section-title="$t('pageVirtualMedia.virtualMediaSubTitleSecond')"
@@ -61,6 +60,7 @@
               >
                 <b-button
                   variant="primary"
+                  :disabled="device.isActive"
                   @click="configureConnection(device)"
                 >
                   {{ $t('pageVirtualMedia.configureConnection') }}
@@ -125,29 +125,10 @@ export default {
     legacyDevices() {
       return this.$store.getters['virtualMedia/legacyDevices'];
     },
-    vmStarted: {
-      get() {
-        return this.$store.getters['virtualMedia/vmStarted'];
-      },
-      set(newValue) {
-        return newValue;
-      },
-    },
-    legacyStarted: {
-      get() {
-        return this.$store.getters['virtualMedia/legacyStarted'];
-      },
-      set(newValue) {
-        return newValue;
-      },
-    },
   },
   created() {
-    if (
-      (this.proxyDevices.length > 0 || this.legacyDevices.length > 0) &&
-      (this.vmStarted > 0 || this.legacyStarted > 0)
-    )
-      return;
+    this.$store.dispatch('global/getSystemInfo');
+    if (this.proxyDevices.length > 0 || this.legacyDevices.length > 0) return;
     this.startLoader();
     this.$store
       .dispatch('virtualMedia/getData')
@@ -178,12 +159,11 @@ export default {
         device.file = null;
         device.isActive = false;
       };
-      this.$store.state.virtualMedia.vmStarted = ++this.vmStarted;
+
       device.nbd.start();
       device.isActive = true;
     },
     stopVM(device) {
-      this.$store.state.virtualMedia.vmStarted = --this.vmStarted;
       device.nbd.stop();
     },
     startLegacy(connectionData) {
@@ -217,7 +197,6 @@ export default {
           data: data,
         })
         .then(() => {
-          this.$store.state.virtualMedia.legacyStarted = ++this.legacyStarted;
           this.successToast(
             this.$t('pageVirtualMedia.toast.serverConnectionEstablished')
           );
@@ -233,7 +212,6 @@ export default {
       this.$store
         .dispatch('virtualMedia/unmountImage', connectionData.id)
         .then(() => {
-          this.$store.state.virtualMedia.legacyStarted = --this.legacyStarted;
           this.successToast(
             this.$t('pageVirtualMedia.toast.serverClosedSuccessfully')
           );
