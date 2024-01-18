@@ -42,7 +42,7 @@
         </page-section>
       </b-col>
     </b-row>
-    <b-row v-if="loadImageFromExternalServer" class="mb-4">
+    <b-row>
       <b-col md="12">
         <page-section
           :section-title="$t('pageVirtualMedia.virtualMediaSubTitleSecond')"
@@ -115,7 +115,7 @@ export default {
       loadImageFromExternalServer:
         process.env.VUE_APP_VIRTUAL_MEDIA_LIST_ENABLED === 'true'
           ? true
-          : true,
+          : false,
     };
   },
   computed: {
