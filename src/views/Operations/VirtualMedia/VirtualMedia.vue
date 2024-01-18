@@ -115,7 +115,7 @@ export default {
       loadImageFromExternalServer:
         process.env.VUE_APP_VIRTUAL_MEDIA_LIST_ENABLED === 'true'
           ? true
-          : false,
+          : true,
     };
   },
   computed: {
