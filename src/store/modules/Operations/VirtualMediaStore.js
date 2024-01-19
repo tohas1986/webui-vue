@@ -35,7 +35,7 @@ const VirtualMediaStore = {
       const virtualMediaListEnabled =
         process.env.VUE_APP_VIRTUAL_MEDIA_LIST_ENABLED === 'true'
           ? true
-          : false;
+          : true;
       if (!virtualMediaListEnabled) {
         const device = {
           id: i18n.t('pageVirtualMedia.defaultDeviceName'),
