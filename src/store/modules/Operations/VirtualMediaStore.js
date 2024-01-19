@@ -32,10 +32,10 @@ const VirtualMediaStore = {
   },
   actions: {
     async getData({ commit }) {
-      const virtualMediaListEnabled =
+      /*const virtualMediaListEnabled =
         process.env.VUE_APP_VIRTUAL_MEDIA_LIST_ENABLED === 'true'
           ? true
-          : true;
+          : false;
       if (!virtualMediaListEnabled) {
         const device = {
           id: i18n.t('pageVirtualMedia.defaultDeviceName'),
@@ -46,7 +46,7 @@ const VirtualMediaStore = {
         };
         commit('setProxyDevicesData', [device]);
         return;
-      }
+      }*/
 
       return await api
         .get('/redfish/v1/Managers/bmc/VirtualMedia')
